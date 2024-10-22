@@ -142,7 +142,7 @@ loose-group_replication_applier_batch_size_threshold=10000
 
 # For machines with high memory capacity (available memory > 128GB), replica_worker_queue_len_max can be set to 1,048,576;
 # for machines with medium memory capacity (64GB < available memory < 128GB), replica_worker_queue_len_max can be set to 524,288.
-#replica_worker_queue_len_max=524288
+#loose-replica_worker_queue_len_max=524288
 
 # Set a reasonable value based on the concurrency level.
 slave_parallel_workers=64
