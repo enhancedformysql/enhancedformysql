@@ -73,6 +73,7 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 - During testing, the concurrency limit should not exceed 1000, as the current throttling mechanism has not been open-sourced.
 - It is recommended to align MySQL configuration parameters with our settings, making adjustments based on the specific hardware.
 - Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all official nodes is required to complete the transition.
+- For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [MySQL Proxy](https://github.com/advancedmysql/mysql-proxy).
 
 ## Available Download Versions
 
