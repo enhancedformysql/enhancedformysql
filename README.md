@@ -4,6 +4,14 @@ To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The sp
 
 Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users. Technical support for MySQL 8.0 will continue until this version is officially retired.
 
+## Why choose our open-source products?
+
+- While enjoying the latest official features, our version offers superior performance, stability, and high availability compared to the official release.
+- After the official release of MySQL 8.0, we can launch a high-performance integrated version within one week.
+- We provide two-dimensional version maintenance. Each release fixes critical bugs and continuously enhances performance, ensuring users don't need to upgrade across major versions to solve issues.
+- We continuously track and fix key performance issues, delivering high-quality service.
+- While ensuring high availability, we provide practical strong consistency reads, with the additional latency typically only in the millisecond range.
+
 ## Available Download Versions
 
 In addition to the main project's patch, we also offer source code downloads and runnable versions for the subordinate releases.
@@ -28,7 +36,6 @@ In addition to the main project's patch, we also offer source code downloads and
 - MySQL group replication is highly unstable, exhibits poor performance, and is prone to various failures, making it nearly unusable in high-traffic scenarios.
 - The optimization progress for MySQL is notably slow.
 - When issues arise, users are often compelled to take risks and upgrade, which is not user-friendly.
-- MySQL was designed for low throughput and is not optimized for high performance.
 - There are still numerous optimization opportunities within MySQL waiting to be explored.
 - With its long history, MySQL has become bloated, featuring many obsolete functions that limit improvements.
 - MySQL 8.0 is relatively stable, offering comprehensive features, and enhancing this foundation presents a lower risk, especially with later versions like MySQL 8.0.39+.
@@ -44,14 +51,13 @@ In addition to the main project's patch, we also offer source code downloads and
 - Focus on maintaining each version to alleviate upgrade concerns.
 - Continue to support users who prefer a specific version, addressing critical bugs and making long-term improvements.
 - Provide resources for users to learn optimization techniques, referenced in our publications.
-- Deliver a user-friendly, high-quality MySQL product.
 
 ## Code Maintenance Strategies
 
 To align with the official MySQL 8.0 version, the following strategy has been adopted:
 
 1. Closely monitor later versions of MySQL 8.0 to minimize issues and simplify maintenance.
-2. Release new versions within a month after the official release to ensure alignment with the official schedule.
+2. Release new versions within a week after the official release to ensure alignment with the official schedule.
 3. Focus on enhancing performance, stability, high availability, and consistent reads. 
 
 ## Our Improvements
@@ -60,8 +66,7 @@ To align with the official MySQL 8.0 version, the following strategy has been ad
 - **Performance Optimization for Binlog Group Commits.**
 - **Resolution of Performance Degradation Issues in Query Execution Plans.**
 - **Replica Replay Optimization:** Accelerated replay speed on replicas to ensure consistent reads.
-- 
-- **Addressing Performance Issues Due to Poor MySQL NUMA Compatibility.**
+- **Addressing Performance Issues Due to Poor NUMA Compatibility.**
 - **Mature High Availability Product:** Improved Paxos protocol and protocol interactions, along with better design and enhanced cluster write performance.
 
 These improvements are designed to enhance MySQL’s performance in high-throughput environments, achieve consistent reads, and address various failure issues, ensuring high availability and performance in high-concurrency scenarios, making it particularly suitable for internet companies.
@@ -84,11 +89,11 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 ## Note
 
 - The better the hardware environment, the greater the performance gap with the official version as concurrency increases.
-- Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize [TCPCopy](https://github.com/session-replay-tools/tcpcopy). to replicate online traffic for testing.
-- In weaker hardware environments, it is advisable to test with low concurrency, with BenchmarkSQL being the best option for these scenarios.
+- Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize [TCPCopy](https://github.com/session-replay-tools/tcpcopy) to replicate online traffic for testing.
 - During testing, the concurrency limit should not exceed 1000, as the current throttling mechanism has not been open-sourced.
 - It is recommended to align MySQL configuration parameters with our settings, making adjustments based on the specific hardware.
-- Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all official nodes is required to complete the transition.
+- For high availability, we adopted the single-primary mode of Group Replication but removed the conflict detection part, making it a fully state machine-based approach.
+- Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all nodes is required to complete the transition.
 - For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [MySQL Proxy](https://github.com/advancedmysql/mysql-proxy).
 
 ## Frequently Asked Questions
@@ -109,7 +114,7 @@ To date, MySQL 8.0 has been in development and use for over eight years, demonst
 
 Many users claim that the performance of 8.0 has declined, but this is a misconception, often based on simple sysbench test results. Users should test our open-source version in real-world environments or use better tools like BenchmarkSQL TPCC to evaluate the optimized performance, ideally testing in a clustered environment.
 
-The feedback on performance decline mostly comes from tests on low-end machines. The reason for the performance decline in these environments is that the official version uses a new redo log mechanism, which employs a batch activation approach. This mechanism is more efficient in high-concurrency scenarios, but compared to the previous user thread self-activation mechanism, it offers no advantage in low-concurrency situations. Overall, in cases with low contention, i.e., low concurrency, the response speed has decreased, but overall efficiency has improved. However, this new mechanism greatly improves concurrent write capabilities, allowing 8.0 to outperform version 5.7 significantly in high-concurrency scenarios.
+The feedback on performance decline mostly comes from tests on low-end machines. The reason for the performance decline in these environments is that the official version uses a new redo log mechanism, which employs a batch activation approach. This mechanism is more efficient in high-concurrency scenarios, but compared to the previous user thread self-activation mechanism, it offers no advantage in low-concurrency situations. Overall, in cases with low concurrency, the response speed has decreased, but overall efficiency has improved. However, this new mechanism greatly improves concurrent write capabilities, allowing 8.0 to outperform version 5.7 significantly in high-concurrency scenarios.
 
 We have optimized for low-concurrency environments, achieving notable improvements in some cases, though these improvements are only significant in specific scenarios.
 
@@ -169,7 +174,7 @@ The effectiveness largely depends on the specific environment. While our redo lo
 
 **15. Why do we place such importance on high concurrency capabilities?**
 
-In cross-datacenter scenarios, high availability clusters must support high concurrency. Additionally, online environments often include thinking time, further emphasizing the need for high concurrency. Amdahl's Law indicates that in synchronous cluster environments, network latency is a significant factor, which means the benefits of single-machine optimizations may not translate effectively to clusters. This highlights the essential difference between cluster testing and MySQL single-machine performance. Thus, testing environments should closely mirror online environments to ensure the authenticity of the results.
+In cross-datacenter scenarios, high availability clusters must support high concurrency. Additionally, online environments often include thinking time, further emphasizing the need for high concurrency. Amdahl's Law indicates that in synchronous cluster environments, network latency is a significant factor, which means the benefits of single-machine optimizations may not translate effectively to clusters. This underscores the key difference between cluster performance and single-machine MySQL performance. Thus, testing environments should closely mirror online environments to ensure the authenticity of the results.
 
 **16. How do we merge the official code in our open-source project?**
 
@@ -186,7 +191,7 @@ As a result, the decision was made to open-source the MySQL optimized version to
 **18. Why not develop based on Percona?**
 
 First, the merging process with Percona is notably slow.
-Second, as MySQL's scalability issues are progressively resolved, solutions based on the Percona thread pool often do not yield significant performance enhancements in most scenarios. In contrast, throttling mechanisms provide a more effective means of stabilizing throughput under extremely high concurrency.
+Second, as MySQL's scalability issues are gradually addressed, solutions based on the Percona thread pool often do not yield significant performance enhancements in most scenarios. In contrast, throttling mechanisms provide a more effective means of stabilizing throughput under extremely high concurrency.
 Finally, while Percona mainly emphasizes operational strategies, our approach is fundamentally focused on performance optimization.
 
 ## References
@@ -195,4 +200,4 @@ For detailed principles and mechanisms behind our improvements, please refer to 
 
 ## Bugs and Feature Requests
 
-MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/mysql/issues). Before submitting a new issue, kindly check for any existing ones.
+MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/mysql/issues). Before submitting a new issue, please check for any existing ones.
