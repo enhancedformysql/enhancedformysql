@@ -1,0 +1,158 @@
+[mysqld]
+port=53306
+server_id=2
+report_host=127.0.0.1
+default_authentication_plugin=mysql_native_password
+
+#******location
+pid-file        = /xxx/mysql/data1/mysqld.pid
+socket          = /xxx/mysql/data1/mysqld.sock
+datadir         = /xxx/mysql/data1
+log-error       = /xxx/mysql/data1/error.log
+log-bin         = /xxx/mysql/data1/server-binary-log
+relay-log       = /xxx/mysql/data1/server-relay-log
+
+query_prealloc_size=1048576
+table_open_cache=50000
+character-set-server = latin1
+replication_optimize_for_static_plugin_config=ON
+temptable_max_ram=42949672960
+
+#**********************Performance*********************
+#******connect
+max_connections=1000
+max_connect_errors=1000000
+open_files_limit=65535
+back_log=1500
+skip_ssl
+table_definition_cache=10000
+thread_stack=256K
+thread_cache_size=3000
+
+#******session
+sort_buffer_size=4M
+join_buffer_size=4M
+read_buffer_size=4M
+read_rnd_buffer_size=4M
+bulk_insert_buffer_size=64M
+tmp_table_size=64M
+max_heap_table_size=64M
+net_buffer_length=16K
+max_allowed_packet=1G
+
+#******timeout
+lock_wait_timeout=600
+connect_timeout=10
+interactive_timeout=31536000
+wait_timeout=31536000
+net_read_timeout=86400
+net_write_timeout=86400
+net_retry_count=10
+
+#**********************Logs****************************
+log_output=FILE
+log_timestamps=SYSTEM
+
+#******error log
+log_error_verbosity=3
+
+#******slow log
+slow_query_log=OFF
+long_query_time=0.3
+log_queries_not_using_indexes=OFF
+log_throttle_queries_not_using_indexes=60
+log_slow_admin_statements=OFF
+log_slow_slave_statements=OFF
+min_examined_row_limit=0
+
+#******general log
+general_log=OFF
+
+#******binlog
+binlog_format=ROW
+sync_binlog=1
+binlog_cache_size=4M
+max_binlog_cache_size=4G
+max_binlog_size=1G
+binlog_rows_query_log_events=OFF
+binlog_checksum=NONE
+binlog_row_image=MINIMAL
+gtid_mode=ON
+enforce_gtid_consistency=ON
+binlog_expire_logs_seconds=3600
+binlog_order_commits=ON
+# For efficient replay on the replica, please set this.
+binlog-transaction-dependency-tracking=WRITESET
+
+#******redolog
+innodb_log_file_size=8G
+innodb_log_files_in_group=4
+
+#**********************InnoDB**************************
+transaction_isolation=READ-COMMITTED
+# Set a reasonable value based on the memory condition
+innodb_buffer_pool_size=92G
+innodb_buffer_pool_instances=16
+innodb_max_dirty_pages_pct=90
+innodb_flush_log_at_trx_commit=1
+innodb_log_buffer_size=1G
+innodb_page_cleaners=8
+innodb_buffer_pool_dump_at_shutdown=ON
+innodb_buffer_pool_load_at_startup=ON
+innodb_buffer_pool_dump_pct=100
+innodb_checksum_algorithm=NONE
+innodb_undo_log_truncate=OFF
+innodb_change_buffering = none
+innodb_compression_level=6
+innodb_spin_wait_delay=6
+innodb_sync_spin_loops=30
+innodb_open_files=65535
+innodb_flush_method=O_DIRECT
+innodb_flush_neighbors=0
+innodb_io_capacity=2000
+innodb_io_capacity_max=5000
+innodb_lru_scan_depth=9000
+innodb_lock_wait_timeout=30
+innodb_print_all_deadlocks=OFF
+innodb_online_alter_log_max_size=4G
+innodb_thread_concurrency=0
+innodb_read_io_threads=32
+innodb_write_io_threads=32
+innodb_doublewrite=ON
+
+innodb_adaptive_hash_index=OFF
+innodb_status_file=OFF
+
+# For Group Replication
+plugin-load-add=mysql_clone.so
+loose_clone=FORCE_PLUS_PERMANENT
+plugin_load_add='group_replication.so'
+enforce-gtid-consistency
+gtid-mode=on
+loose-group_replication_member_expel_timeout=3
+loose-group_replication_start_on_boot=OFF
+loose-group_replication_group_name="aaaaaaaa-aaaa-aaaa-aaaa-baaaaaaaaaab"
+loose-group_replication_local_address=127.0.0.1:53318
+loose-group_replication_group_seeds="127.0.0.1:63318,127.0.0.1:53318,127.0.0.1:43318"
+loose-group_replication_member_weight=50
+loose-group_replication_applier_batch_size_threshold=10000
+
+# If the replica needs to read the latest data, it needs to be set to before
+#loose-group_replication_consistency=BEFORE
+
+# For machines with high memory capacity (available memory > 128GB), replica_worker_queue_len_max can be set to 1,048,576;
+# for machines with medium memory capacity (64GB < available memory < 128GB), replica_worker_queue_len_max can be set to 524,288.
+#replica_worker_queue_len_max=524288
+
+# Set a reasonable value based on the concurrency level.
+slave_parallel_workers=64
+slave_parallel_type=LOGICAL_CLOCK
+slave_preserve_commit_order=on
+
+#**********************PFS**************************
+performance_schema=OFF
+
+[mysqldump]
+quick
+net_buffer_length=16K
+
