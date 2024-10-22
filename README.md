@@ -79,10 +79,10 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 **Available Download Versions**
 
 1. **Source Code of Improved Version Based on MySQL 8.0.39**  
-   [Download Here](https://github.com/advancedmysql/mysql-8.0.39)
+   [Visit Here](https://github.com/advancedmysql/mysql-8.0.39)
 
 2. **Source Code of Improved Version Based on MySQL 8.0.40**  
-   [Download Here](https://github.com/advancedmysql/mysql-8.0.40)  
+   [Visit Here](https://github.com/advancedmysql/mysql-8.0.40)  
    
    - **Release for CentOS 8.0**  
      [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos8.tar.gz)  
@@ -194,4 +194,4 @@ For detailed principles and mechanisms behind our improvements, please refer to 
 
 ## Bugs and Feature Requests
 
-MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/facade/issues). Before submitting a new issue, kindly check for any existing ones.
+MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/mysql/issues). Before submitting a new issue, kindly check for any existing ones.
