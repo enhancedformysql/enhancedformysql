@@ -2,7 +2,7 @@
 
 To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
 
-Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users. Technical support for MySQL 8.0 will continue until this version is officially retired
+Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users. Technical support for MySQL 8.0 will continue until this version is officially retired.
 
 ## Current Status of MySQL:
 
@@ -68,7 +68,7 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 ## Notice
 
 - The better the hardware environment, the greater the performance gap with the official version as concurrency increases.
-- Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize TCPCopy to replicate online traffic for testing.
+- Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize [TCPCopy](https://github.com/session-replay-tools/tcpcopy). to replicate online traffic for testing.
 - In weaker hardware environments, it is advisable to test with low concurrency, with BenchmarkSQL being the best option for these scenarios.
 - During testing, the concurrency limit should not exceed 1000, as the current throttling mechanism has not been open-sourced.
 - It is recommended to align MySQL configuration parameters with our settings, making adjustments based on the specific hardware.
@@ -102,7 +102,7 @@ While these optimizations may be lower in priority within the official MySQL ver
 
 When users opt for a specific version and find it inconvenient to upgrade alongside official releases, our open-source version becomes the ideal choice. Each open-source version will be maintained, with critical bugs fixed and performance enhanced. Since many optimizations and bug fixes are applicable across different versions, maintaining the 8.0 series is straightforward, and support for stable releases of higher versions will continue in the future.
 
-To date, MySQL 8.0 has been in development and use for over eight years, demonstrating its reliability and establishing it as a trusted version. i
+To date, MySQL 8.0 has been in development and use for over eight years, demonstrating its reliability and establishing it as a trusted version. 
 
 **3. Why do users report a performance decline in 8.0?**
 
