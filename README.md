@@ -4,7 +4,23 @@ To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The sp
 
 Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users. Technical support for MySQL 8.0 will continue until this version is officially retired.
 
-## Current Status of MySQL:
+## Available Download Versions
+
+In addition to the main project's patch, we also offer source code downloads and runnable versions for the subordinate releases.
+
+1. **Source Code of Improved Version Based on MySQL 8.0.39**  
+   [Visit Here](https://github.com/advancedmysql/mysql-8.0.39)
+
+2. **Source Code of Improved Version Based on MySQL 8.0.40**  
+   [Visit Here](https://github.com/advancedmysql/mysql-8.0.40)
+   
+   - **Release for CentOS 8.0**  
+     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos8.tar.gz)
+   
+   - **Release for CentOS 7.0**  
+     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos7.tar.gz)
+
+## Current Status of MySQL
 
 - The InnoDB storage engine suffers from poor scalability and is prone to performance bottlenecks under high concurrency in NUMA environments.
 - MySQL's performance can be unstable at low concurrency, leading to instances of very poor performance.
@@ -17,7 +33,7 @@ Extensive testing has shown that these optimizations are especially effective on
 - With its long history, MySQL has become bloated, featuring many obsolete functions that limit improvements.
 - MySQL 8.0 is relatively stable, offering comprehensive features, and enhancing this foundation presents a lower risk, especially with later versions like MySQL 8.0.39+.
 
-## Our Purpose of Open Sourcing:
+## Our Purpose of Open Sourcing
 
 - Deliver high-quality MySQL solutions to meet the demands of high-traffic scenarios.
 - Support the high concurrency performance needed by internet companies.
@@ -65,7 +81,7 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 - **AI-Related Parameter and Monitoring Optimizations**
 - **General Optimizations:** Improvements in compression, algorithms, and data structures.
 
-## Notice
+## Note
 
 - The better the hardware environment, the greater the performance gap with the official version as concurrency increases.
 - Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize [TCPCopy](https://github.com/session-replay-tools/tcpcopy). to replicate online traffic for testing.
@@ -74,22 +90,6 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 - It is recommended to align MySQL configuration parameters with our settings, making adjustments based on the specific hardware.
 - Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all official nodes is required to complete the transition.
 - For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [MySQL Proxy](https://github.com/advancedmysql/mysql-proxy).
-
-## Available Download Versions
-
-**Available Download Versions**
-
-1. **Source Code of Improved Version Based on MySQL 8.0.39**  
-   [Visit Here](https://github.com/advancedmysql/mysql-8.0.39)
-
-2. **Source Code of Improved Version Based on MySQL 8.0.40**  
-   [Visit Here](https://github.com/advancedmysql/mysql-8.0.40)  
-   
-   - **Release for CentOS 8.0**  
-     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos8.tar.gz)  
-   
-   - **Release for CentOS 7.0**  
-     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos7.tar.gz)  
 
 ## Frequently Asked Questions
 
