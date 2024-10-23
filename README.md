@@ -2,7 +2,7 @@
 
 To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
 
-Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users. Technical support for MySQL 8.0 will continue until this version is officially retired.
+Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users.
 
 ## Why choose our open-source products?
 
@@ -202,3 +202,7 @@ For detailed principles and mechanisms behind our improvements, please refer to 
 ## Bugs and Feature Requests
 
 MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/mysql/issues). Before submitting a new issue, please check for any existing ones.
+
+## Copyright and License
+
+Copyright 2024 under [GPLv2](LICENSE).
