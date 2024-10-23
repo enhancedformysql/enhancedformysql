@@ -22,10 +22,10 @@ In addition to the main project's patch, we also offer source code downloads and
 2. **Source Code of Improved Version Based on MySQL 8.0.40**  
    [Visit Here](https://github.com/advancedmysql/mysql-8.0.40)
    
-   - **The binary release version for CentOS 8.0**  
+   - **The binary release version of CentOS 8.0 for x86 architecture**  
      [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos8.tar.gz)
    
-   - **The binary release version for CentOS 7.0**  
+   - **The binary release version of CentOS 7.0 for x86 architecture**  
      [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v1.0/mysql-8.0.40-v1-for-centos7.tar.gz)
 
 ## Current Status of MySQL
