@@ -115,9 +115,11 @@ To date, MySQL 8.0 has been in development and use for over eight years, demonst
 
 Many users claim that the performance of 8.0 has declined, but this is a misconception, often based on simple sysbench test results. Users should test our open-source version in real-world environments or use better tools like BenchmarkSQL TPCC to evaluate the optimized performance, ideally testing in a clustered environment.
 
-The feedback on performance decline mostly comes from tests on low-end machines. The reason for the performance decline in these environments is that the official version uses a new redo log mechanism, which employs a batch activation approach. This mechanism is more efficient in high-concurrency scenarios, but compared to the previous user thread self-activation mechanism, it offers no advantage in low-concurrency situations. Overall, in cases with low concurrency, the response speed has decreased, but overall efficiency has improved. However, this new mechanism greatly improves concurrent write capabilities, allowing 8.0 to outperform version 5.7 significantly in high-concurrency scenarios.
+The feedback on performance decline mostly comes from tests on low-end machines. The reason for the performance decline in these environments is that the official version uses a new redo log mechanism, which employs a batch activation approach. This mechanism is more efficient in high-concurrency scenarios, but compared to the previous user thread self-activation mechanism, it offers no advantage in low-concurrency situations. Overall, in cases with low concurrency, the response speed has decreased. However, this new mechanism greatly improves concurrent write capabilities, allowing 8.0 to outperform version 5.7 significantly in high-concurrency scenarios.
 
 We have optimized for low-concurrency environments, achieving notable improvements in some cases, though these improvements are only significant in specific scenarios.
+
+It should be noted that, aside from the standard sysbench tests mentioned by the user, there are indeed some areas where MySQL 8.0 shows a decline. However, based on our extensive testing, the overall performance has improved.
 
 **4. What is the logic behind the modifications for high availability?**
 
