@@ -93,7 +93,6 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 - Use testing tools that closely resemble the online environment, such as BenchmarkSQL, to effectively showcase performance advantages. If possible, utilize [TCPCopy](https://github.com/session-replay-tools/tcpcopy) to replicate online traffic for testing.
 - During testing, the concurrency limit should not exceed 1000, as the current throttling mechanism has not been open-sourced.
 - It is recommended to align MySQL configuration parameters with our settings, making adjustments based on the specific hardware.
-- 
 - For high availability, we adopted the single-primary mode of Group Replication but removed the conflict detection part, making it a fully state machine-based approach.
 - Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all nodes is required to complete the transition.
 - For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [MySQL Proxy](https://github.com/advancedmysql/mysql-proxy).
