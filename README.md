@@ -51,6 +51,7 @@ In addition to the main project's patch, we also offer source code downloads and
 - Focus on maintaining each version to alleviate upgrade concerns.
 - Continue to support users who prefer a specific version, addressing critical bugs and making long-term improvements.
 - Provide resources for users to learn optimization techniques, referenced in our publications.
+- We will gather all performance issues that need improvement and work to resolve them.
 
 ## Code Maintenance Strategies
 
