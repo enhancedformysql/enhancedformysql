@@ -148,51 +148,47 @@ In the first scenario, within a high availability setup, the 'before' mechanism 
 
 If the high availability mechanism is not employed, users can still perform read operations through MySQL middleware or by including GTIDs, which will also allow access to the latest data.
 
-**8. When is Paxos log persistence expected to be open-sourced?**
-
-It is expected to be open-sourced around the end of the year.
-
-**9. What are the core advantages of MySQL 8.0 over 5.7?**
+**8. What are the core advantages of MySQL 8.0 over 5.7?**
 
 In addition to enhanced features, MySQL 8.0 emphasizes high-concurrency performance. During its development, the official team made significant improvements, prioritizing scalability at the expense of some low-concurrency performance. To fully appreciate the benefits of our enhancements in 8.0, high-performance machines, particularly those with NUMA architecture, are essential. To effectively support over 1,000 concurrent connections, a throttling mechanism may be required, and there are plans to gradually open-source this functionality.
 
-**10. Why does the released version include PGO optimization?**
+**9. Why does the released version include PGO optimization?**
 
 For medium-end machines, performance can typically be enhanced through PGO optimization. However, implementing PGO optimization requires addressing scalability issues, which is why it is infrequently utilized. The release version incorporates PGO optimization, alleviating concerns about throughput reduction across various environments. Performance remains robust for concurrent connections below 1,000.
 
-**11. Why are performance issues difficult to detect in low concurrency and weak environments?**
+**10. Why are performance issues difficult to detect in low concurrency and weak environments?**
 
 In low-concurrency and weak machine environments, performance issues often go unnoticed. These setups typically use SMP architecture, where NUMA-related problems are not apparent. With low concurrency, latch contention is minimal, and IO becomes the primary bottleneck, while limited CPU resources increase optimization costs. Consequently, identifying performance issues poses a challenge for MySQL developers. For example, in weak machines limited by IO, Amdahl's Law indicates that the computational portion is small, making optimization effects less noticeable. In contrast, high IO environments have a significant computational portion, leading to more pronounced optimization benefits.
 
-**12. What value does our open-source project provide in high-end environments?**
+**11. What value does our open-source project provide in high-end environments?**
 
 In high IO speed environments, our open-source project delivers substantial value. It not only tackles NUMA-related issues in MySQL's primary but also enhances those in replicas. By significantly alleviating the scalability challenges of the InnoDB storage engine, optimizations like PGO can be realized more effectively.
 
-**13. What value does our optimized version provide in medium-end environments (such as a single NUMA node or SMP environment)?**
+**12. What value does our optimized version provide in medium-end environments (such as a single NUMA node or SMP environment)?**
 
 First, the optimizations address group replication issues, making them suitable for both high-end and low-end machine scenarios. Second, the replay speed of replicas can be improved, ensuring that consistency reads remain unaffected. Finally, the effectiveness of PGO is significantly enhanced in these environments.
 
-**14. What value does our optimization provide in low-end environments (such as weak IO devices, virtual machine environments, and few CPUs)?**
+**13. What value does our optimization provide in low-end environments (such as weak IO devices, virtual machine environments, and few CPUs)?**
 
 The effectiveness largely depends on the specific environment. While our redo log optimization can yield positive results in some cases, extensive testing indicates that improvements are not guaranteed. Although latency can be reduced to some extent, the effects may not match those seen in high-end machines. However, a robust high availability mechanism can still be leveraged.
 
-**15. Why do we place such importance on high concurrency capabilities?**
+**14. Why do we place such importance on high concurrency capabilities?**
 
 In cross-datacenter scenarios, high availability clusters must support high concurrency. Additionally, online environments often include thinking time, further emphasizing the need for high concurrency. Amdahl's Law indicates that in synchronous cluster environments, network latency is a significant factor, which means the benefits of single-machine optimizations may not translate effectively to clusters. This underscores the key difference between cluster performance and single-machine MySQL performance. Thus, testing environments should closely mirror online environments to ensure the authenticity of the results.
 
-**16. How do we merge the official code in our open-source project?**
+**15. How do we merge the official code in our open-source project?**
 
 Work is based on the officially released version, with patches applied accordingly. During code conflict resolution, logical consistency is ensured, followed by regression testing. Once regression tests are successful, extensive testing across various types is conducted to confirm the program's integrity.
 
 This merging strategy is highly efficient for MySQL 8.0 and later versions, allowing for seamless alignment with official updates to MySQL 8.0.
 
-**17. Why aren't these improvements merged into the official MySQL?**
+**16. Why aren't these improvements merged into the official MySQL?**
 
 Optimizations have been recommended to the official team and have received acknowledgment. However, they are assigned low priority in official bug fixes. Simple optimizations may take considerable time to be integrated, while complex ones might never be implemented.
 
 As a result, the decision was made to open-source the MySQL optimized version to ensure effective application in high-end scenarios.
 
-**18. Why not develop based on Percona?**
+**17. Why not develop based on Percona?**
 
 First, the merging process with Percona is notably slow.
 Second, as MySQL's scalability issues are gradually addressed, solutions based on the Percona thread pool often do not yield significant performance enhancements in most scenarios. In contrast, throttling mechanisms provide a more effective means of stabilizing throughput under extremely high concurrency.
