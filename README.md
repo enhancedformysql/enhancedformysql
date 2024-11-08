@@ -66,7 +66,7 @@ To align with the official MySQL 8.0 version, the following strategy has been ad
 
 ## Our Improvements
 
-- **Resolution of Performance Degradation Issues Since Version 8.0.28:** Join Performance Restored to Previous Levels.
+- **Resolution of Performance Degradation Issues Since Version 8.0.28:** Join performance restored to previous levels.
 - **InnoDB Storage Engine Enhancements:** Improved scalability and redo log performance in specific scenarios.
 - **Performance Optimization for Binlog Group Commits.**
 - **Resolution of Performance Degradation Issues in Query Execution Plans.**
