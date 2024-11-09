@@ -17,15 +17,15 @@ Extensive testing has shown that these optimizations are especially effective on
 In addition to the main project's patch, we also offer source code downloads and runnable versions for the subordinate releases.
 
 1. **Source Code of Improved Version Based on MySQL 8.0.40**  
-   [Visit Here](https://github.com/advancedmysql/mysql-8.0.40)
+   [Visit Here](https://github.com/enhancedformysql/mysql-8.0.40)
 
 2. **The binary release version**  
    
    - **For CentOS 8.0 on x86 architecture**  
-     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos8.tar.gz)
+     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos8.tar.gz)
    
    - **For CentOS 7.0 on x86 architecture**  
-     [Download Here](https://github.com/advancedmysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos7.tar.gz)
+     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos7.tar.gz)
 
 It is strongly recommended to download the binary version, as its performance significantly exceeds that of the corresponding MySQL version.
 
@@ -100,7 +100,7 @@ The compiled version utilizing PGO optimization is recommended. Users interested
 - For high availability, we adopted the single-primary mode of Group Replication but removed the conflict detection part, making it a fully state machine-based approach.
 - Due to differences in the underlying data format of Paxos communication, it is incompatible with the official version during runtime, but compatible when offline. A restart of all nodes is required to complete the transition.
 - It is not recommended to use MySQL Router, as it is not very mature and has several significant issues.
-- For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [MySQL Proxy](https://github.com/advancedmysql/mysql-proxy).
+- For the improved Group Replication, we also have a highly mature middleware to provide support. For more details, refer to the project at [Cetus](https://github.com/enhancedformysql/cetus).
 
 ## Frequently Asked Questions
 
@@ -200,11 +200,11 @@ Finally, while Percona mainly emphasizes operational strategies, our approach is
 
 ## References
 
-For detailed principles and mechanisms behind our improvements, please refer to the following book：[The Art of Problem-Solving in Software Engineering:How to Make MySQL Better](https://advancedmysql.github.io/The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better/)
+For detailed principles and mechanisms behind our improvements, please refer to the following book：[The Art of Problem-Solving in Software Engineering:How to Make MySQL Better](https://enhancedformysql.github.io/The-Art-of-Problem-Solving-in-Software-Engineering_How-to-Make-MySQL-Better/)
 
 ## Bugs and Feature Requests
 
-MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/advancedmysql/mysql/issues). Before submitting a new issue, please check for any existing ones.
+MySQL continues to offer numerous optimization opportunities of significant interest. If users experience any performance-related issues during actual use, [please open a new issue](https://github.com/enhancedformysql/enhancedformysql/issues). Before submitting a new issue, please check for any existing ones.
 
 ## Copyright and License
 
