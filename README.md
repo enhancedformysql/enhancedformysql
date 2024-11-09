@@ -22,10 +22,10 @@ In addition to the main project's patch, we also offer source code downloads and
 2. **The binary release version**  
    
    - **For CentOS 8.0 on x86 architecture**  
-     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos8.tar.gz)
+     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v3.0/mysql-8.0.40-v3-for-centos8.tar.gz)
    
    - **For CentOS 7.0 on x86 architecture**  
-     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v2.0/mysql-8.0.40-v2-for-centos7.tar.gz)
+     [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v3.0/mysql-8.0.40-v3-for-centos7.tar.gz)
 
 It is strongly recommended to download the binary version, as its performance significantly exceeds that of the corresponding MySQL version.
 
