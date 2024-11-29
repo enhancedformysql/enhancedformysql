@@ -1,6 +1,6 @@
 # Enhancing MySQL: Performance, Stability, and High Availability
 
-To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of the join performance degradation issue since version 8.0.28, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
+To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of the join performance degradation issue since version 8.0.28, mitigation of bulk insert performance issues, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
 
 Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users.
 
@@ -67,6 +67,7 @@ To align with the official MySQL 8.0 version, the following strategy has been ad
 ## Our Improvements
 
 - **Resolution of Performance Degradation Issues Since Version 8.0.28:** Join performance restored to previous levels.
+- **Bulk insert performance improvement:** Replacing the `deque` data structure mitigated the performance degradation.
 - **InnoDB Storage Engine Enhancements:** Improved scalability and redo log performance in specific scenarios.
 - **Performance Optimization for Binlog Group Commits.**
 - **Resolution of Performance Degradation Issues in Query Execution Plans.**
