@@ -209,4 +209,4 @@ MySQL continues to offer numerous optimization opportunities of significant inte
 
 ## Copyright and License
 
-Copyright 2024 under [GPLv2](LICENSE).
+Copyright 2025 under [GPLv2](LICENSE).
