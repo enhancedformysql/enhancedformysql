@@ -1,6 +1,6 @@
 # Enhancing MySQL: Performance, Stability, and High Availability
 
-To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of the join performance degradation issue since version 8.0.28, mitigation of bulk insert performance issues, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
+To better serve MySQL users, we have optimized MySQL 8.0 comprehensively. The specific optimizations include improvements to InnoDB storage engine scalability, redo log optimization, resolution of the join performance degradation issue since version 8.0.28, optimized hash join cost model (MySQL 8.0.42+) for better execution plans, mitigation of bulk insert performance issues, resolution of performance degradation issues in certain scenarios related to query execution plans, binlog group commit optimization, memory usage optimization, high availability enhancements, and secondary replay architecture optimization. These improvements are based on data structures, algorithms, and logical reasoning, aiming for simplicity and efficiency while streamlining the MySQL optimization process. 
 
 Extensive testing has shown that these optimizations are especially effective on high-performance hardware. The optimized MySQL 8.0 delivers more stable and efficient service to users.
 
@@ -16,10 +16,15 @@ Extensive testing has shown that these optimizations are especially effective on
 
 In addition to the main project's patch, we also offer source code downloads and runnable versions for the subordinate releases.
 
-1. **Source Code of Improved Version Based on MySQL 8.0.40**  
+1. **MySQL 8.0.42 Optimization Patch**  
+   
+   [Visit Here](https://github.com/enhancedformysql/enhancedformysql/tree/main/patches/8.0)
+
+2. **Source Code of Improved Version Based on MySQL 8.0.40**
+   
    [Visit Here](https://github.com/enhancedformysql/mysql-8.0.40)
 
-2. **The binary release version**  
+3. **The binary release version**  
    
    - **For CentOS 8.0 on x86 architecture**  
      [Download Here](https://github.com/enhancedformysql/mysql-8.0.40/releases/download/mysql-8.0.40-v3.0/mysql-8.0.40-v3-for-centos8.tar.gz)
@@ -67,6 +72,7 @@ To align with the official MySQL 8.0 version, the following strategy has been ad
 ## Our Improvements
 
 - **Resolution of Performance Degradation Issues Since Version 8.0.28:** Join performance restored to previous levels.
+- **Optimization of Hash Join Cost Calculation (since MySQL 8.0.42) :** Achieves full performance potential through refined cost estimation.
 - **Bulk insert performance improvement:** Replacing the `deque` data structure mitigated the performance degradation.
 - **InnoDB Storage Engine Enhancements:** Improved scalability and redo log performance in specific scenarios.
 - **Performance Optimization for Binlog Group Commits.**
